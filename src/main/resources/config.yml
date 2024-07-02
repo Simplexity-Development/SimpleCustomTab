@@ -1,0 +1,24 @@
+#
+header: "<red>Header"
+footer: "<gradient:red:blue>-=-=-=-=-=-=-=-=-=-</gradient>"
+player: "<papi:luckperms_prefix> <papi:player_displayname>"
+animated:
+  enabled: false
+  delay-ticks: 5
+  header:
+    - "EEEEeEEE"
+    - "EEEeEEEE"
+    - "EEeEEEEE"
+    - "EeEEEEEE"
+    - "eEEEEEEE"
+    - "EEEEEEEe"
+    - "EEEEEEeE"
+    - "EEEEEeEE"
+  footer:
+    - "AAAAAAa"
+    - "AAAAAaA"
+    - "AAAAaAA"
+    - "AAAaAAA"
+    - "AAaAAAA"
+    - "AaAAAAA"
+    - "aAAAAAA"

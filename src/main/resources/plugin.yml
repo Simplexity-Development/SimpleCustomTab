@@ -1,0 +1,15 @@
+name: SimpleCustomTab
+version: '${project.version}'
+main: simplexity.simplecustomtab.SimpleCustomTab
+api-version: '1.21'
+permissions:
+  sct.reload:
+    description: allows you to reload the plugin
+    default: op
+commands:
+  sctreload:
+    description: reloads the plugin
+    usage: /sctreload
+    permission: sct.reload
+softdepend:
+  - PlaceholderAPI
