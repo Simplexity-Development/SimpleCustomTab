@@ -1,7 +1,27 @@
-#
+# included placeholders are <displayname> and <username> for the user's display name and username
 header: "<red>Header"
 footer: "<gradient:red:blue>-=-=-=-=-=-=-=-=-=-</gradient>"
 player: "<papi:luckperms_prefix> <papi:player_displayname>"
+update-ticks: 20
+sort-users:
+  enabled: false
+  # This list can be expanded, the permissions are customizable.
+  # The highest numbers will be on the top, lowest will be bottom.
+  sort-order:
+    5: "tablist.order.admin"
+    4: "tablist.order.mod"
+    3: "tablist.order.donators"
+    2: "tablist.order.voters"
+    1: "tablist.order.members"
+    0: "default"
+# Note, this will override the normal display.
+# The topmost listed will be the highest priority.
+# Permissions are customizable.
+permission-formatting:
+  enabled: false
+  formats:
+    "tablist.formatting.admin" : "<bold>[</bold>ADMIN<bold>]</bold> <displayname>"
+    "tablist.formatting.mod" : "<bold>[</bold>MOD<bold>]</bold> <displayname>"
 animated:
   enabled: false
   delay-ticks: 5

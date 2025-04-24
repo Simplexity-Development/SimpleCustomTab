@@ -27,7 +27,7 @@ public final class SimpleCustomTab extends JavaPlugin {
     public void onEnable() {
         instance = this;
         saveDefaultConfig();
-        reloadConfig();
+        getConfig().options().copyDefaults(true);
         ConfigHandler.getInstance().loadConfig();
         if (instance.getServer().getPluginManager().getPlugin("PlaceholderAPI") != null) {
             PAPI = true;
@@ -35,6 +35,7 @@ public final class SimpleCustomTab extends JavaPlugin {
         instance.getServer().getPluginManager().registerEvents(new LoginListener(), instance);
         instance.getCommand("sctreload").setExecutor(new ReloadCommand());
         ScheduleManager.getInstance().startAnimation();
+        ScheduleManager.getInstance().startTabListSchedule();
         // Plugin startup logic
 
     }

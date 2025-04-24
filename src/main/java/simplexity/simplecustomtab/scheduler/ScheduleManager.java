@@ -7,7 +7,8 @@ import simplexity.simplecustomtab.util.UpdateTabList;
 import simplexity.simplecustomtab.config.ConfigHandler;
 
 public class ScheduleManager {
-    private BukkitTask task;
+    private BukkitTask animationTask;
+    private BukkitTask reloadTablistTask;
     private int currentHeaderFrame = 0;
     private int currentFooterFrame = 0;
 
@@ -22,14 +23,26 @@ public class ScheduleManager {
 
     public void startAnimation(){
         BukkitScheduler scheduler = SimpleCustomTab.getInstance().getServer().getScheduler();
-        if (task != null && !task.isCancelled()) {
-            task.cancel();
+        if (animationTask != null && !animationTask.isCancelled()) {
+            animationTask.cancel();
         }
-        task = scheduler.runTaskTimer(SimpleCustomTab.getInstance(), this::updateTabList, 0,
+        animationTask = scheduler.runTaskTimer(SimpleCustomTab.getInstance(),
+                this::updateTabListHeaderAndFooter, 0,
                 ConfigHandler.getInstance().getDelayInTicks());
     }
 
-    private void updateTabList() {
+    public void startTabListSchedule(){
+        BukkitScheduler scheduler = SimpleCustomTab.getInstance().getServer().getScheduler();
+        if (reloadTablistTask != null && !reloadTablistTask.isCancelled()) {
+            reloadTablistTask.cancel();
+        }
+        reloadTablistTask = scheduler.runTaskTimer(SimpleCustomTab.getInstance(),
+                this::reloadTabList, 0,
+                ConfigHandler.getInstance().getUpdateTicks());
+
+    }
+
+    private void updateTabListHeaderAndFooter() {
         incrementFrame();
         String currentHeader;
         String currentFooter;
@@ -56,4 +69,10 @@ public class ScheduleManager {
             currentFooterFrame++;
         }
     }
+
+    public void reloadTabList(){
+        UpdateTabList.updatePlayerList();
+    }
+
+
 }

@@ -23,7 +23,7 @@ public class UpdateTabList {
         }
     }
 
-    public static void updateHeader(String string){
+    public static void updateHeader(String string) {
         Component header;
         if (SimpleCustomTab.hasPAPI()) {
             header = miniMessage.deserialize(string, PAPIParse.papiTag(null));
@@ -33,7 +33,7 @@ public class UpdateTabList {
         SimpleCustomTab.getInstance().getServer().sendPlayerListHeader(header);
     }
 
-    public static void updateFooter(String string){
+    public static void updateFooter(String string) {
         Component footer;
         if (SimpleCustomTab.hasPAPI()) {
             footer = miniMessage.deserialize(string, PAPIParse.papiTag(null));
