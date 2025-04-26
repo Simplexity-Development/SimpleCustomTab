@@ -13,6 +13,5 @@ public class LoginListener implements Listener {
                 .getServer()
                 .getScheduler()
                 .runTaskLater(SimpleCustomTab.getInstance(), UpdateTabList::updatePlayerList, 20);
-
     }
 }

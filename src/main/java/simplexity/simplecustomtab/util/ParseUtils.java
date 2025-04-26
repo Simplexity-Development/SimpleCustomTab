@@ -4,12 +4,14 @@ import me.clip.placeholderapi.PlaceholderAPI;
 import net.kyori.adventure.text.Component;
 import net.kyori.adventure.text.minimessage.MiniMessage;
 import net.kyori.adventure.text.minimessage.tag.Tag;
+import net.kyori.adventure.text.minimessage.tag.resolver.Placeholder;
 import net.kyori.adventure.text.minimessage.tag.resolver.TagResolver;
 import net.kyori.adventure.text.serializer.legacy.LegacyComponentSerializer;
 import org.bukkit.entity.Player;
+import org.jetbrains.annotations.NotNull;
 import simplexity.simplecustomtab.SimpleCustomTab;
 
-public class PAPIParse {
+public class ParseUtils {
     private static final MiniMessage miniMessage = SimpleCustomTab.getMiniMessage();
     //Credit: https://docs.advntr.dev/faq.html#how-can-i-use-bukkits-placeholderapi-in-minimessage-messages
 
@@ -32,5 +34,11 @@ public class PAPIParse {
             }
             return Tag.selfClosingInserting(componentPlaceholder);
         });
+    }
+
+    public static TagResolver defaultTags(@NotNull Player player) {
+        return TagResolver.resolver(
+                Placeholder.component("displayname", player.displayName()),
+                Placeholder.unparsed("username", player.getName()));
     }
 }

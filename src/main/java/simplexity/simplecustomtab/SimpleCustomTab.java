@@ -22,12 +22,12 @@ public final class SimpleCustomTab extends JavaPlugin {
         return instance;
     }
 
-
     @Override
     public void onEnable() {
         instance = this;
         saveDefaultConfig();
         getConfig().options().copyDefaults(true);
+        saveConfig();
         ConfigHandler.getInstance().loadConfig();
         if (instance.getServer().getPluginManager().getPlugin("PlaceholderAPI") != null) {
             PAPI = true;

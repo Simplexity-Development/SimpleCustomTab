@@ -13,15 +13,20 @@ sort-users:
     3: "tablist.order.donators"
     2: "tablist.order.voters"
     1: "tablist.order.members"
-    0: "default"
 # Note, this will override the normal display.
 # The topmost listed will be the highest priority.
 # Permissions are customizable.
 permission-formatting:
   enabled: false
   formats:
-    "tablist.formatting.admin" : "<bold>[</bold>ADMIN<bold>]</bold> <displayname>"
-    "tablist.formatting.mod" : "<bold>[</bold>MOD<bold>]</bold> <displayname>"
+    admin:
+      permission: "tablist.formatting.admin"
+      format: "<bold>[</bold>ADMIN<bold>]</bold> <displayname>"
+      priority: 5
+    mod:
+      permission: "tablist.formatting.mod"
+      format: "<bold>[</bold>MOD<bold>]</bold> <displayname>"
+      priority: 4
 animated:
   enabled: false
   delay-ticks: 5
